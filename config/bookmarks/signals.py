@@ -3,7 +3,7 @@ from django.dispatch import receiver
 from .models import Article, ActivityLog
 
 @receiver(post_save, sender=Article)
-def log_acticle_created(sender, instance, created, **kwargs):
+def log_article_created(sender, instance, created, **kwargs):
     if created:
         ActivityLog.objects.create(
             content_object=instance,
